@@ -36,7 +36,7 @@ class BaseModel:
         Returns:
             str: Formatted string with class name, id, and attributes.
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """
@@ -47,9 +47,11 @@ class BaseModel:
     def to_dict(self):
         """
         Converts the instance to a dictionary for serialization.
+
+
         Returns:
             dict: Dictionary representation of the instance.
-        """       
+        """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
