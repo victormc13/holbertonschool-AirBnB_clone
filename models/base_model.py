@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
+"""BaseModel class that serves as the base for other classes."""
+
 from uuid import uuid4
 from datetime import datetime
-
-"""Define the BaseModel class"""
 
 
 class BaseModel:
     """
-    BaseModel class that serves as the base for other classes.
+    BaseModel class that serves to be inherited from other classes.
 
     Public instance attributes:
     - id (str): Unique identifier for each instance.
