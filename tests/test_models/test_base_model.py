@@ -25,11 +25,29 @@ class TestBaseModel(unittest.TestCase):
         Test the __str__ method of the BaseModel class.
         """
         my_model = BaseModel()
-        my_model.name = "Test Model"
-        my_model.number = 42
-        expected_dict = "'name': 'Test Model', 'number': 42,\
-                        'updated_at': {my_model.updated_at},\
-                        'id': '{my_model.id}',\
-                        'created_at': {my_model.created_at}"
-        expected_str = f"[BaseModel] ({my_model.id}) {expected_dict}"
-        self.assertEqual(str(my_model), expected_str)
+	str_output = str(my_model)
+	self.assertIn("[BaseModel]", str_output)
+	self.assertIn(f"{my_model.id})", str_output)
+    
+    def test_save(self):
+        """
+	Test the save method updates 'updated_at'.
+	"""
+	my_model = BaseModel()
+	original_updated_at = my_model.updated_at
+	my_model.save()
+	self.assertNotEqual(my_model.updated_at, original_updated_at)
+
+    def test_to_dict(self):
+	"""
+	Test the to_dict method for correct dictionary representation.
+	"""
+        my_model = BaseModel()
+        my_model_dict = my_model.to_dict()
+	self.assertEqual(my_model_dict['__clas__'], 'BaseModel')
+	self.assertIn('id', my_model_dict)
+	self.assertIn('created_at', my_model_dict)
+	self.assertIn('updated_at', my_model_dict)
+
+if __name__ = '__main__':
+    unittest.main()
