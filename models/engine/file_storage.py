@@ -6,6 +6,7 @@ and deserializes JSON file to instances.
 """
 
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -58,7 +59,7 @@ class FileStorage:
                 objs = json.load(the_file)
                 for k, v in objs.items():
                     class_name = v['__class__']
-                    del v['__class__']
                     self.new(eval(class_name)(**v))
+                    del v['__class__']
         except FileNotFoundError:
             pass
