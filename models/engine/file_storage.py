@@ -54,7 +54,7 @@ class FileStorage:
 
     def reload(self):
         try:
-            with open(self.__file_path, enconding='utf-8') as the_file:
+            with open(self.__file_path, encoding='utf-8') as the_file:
                 objs = json.load(the_file)
                 for k, v in objs.items():
                     class_name = v['__class__']
