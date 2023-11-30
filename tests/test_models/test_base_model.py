@@ -3,7 +3,6 @@ import os
 from datetime import datetime
 from models import storage
 from models.base_model import BaseModel
-# from models.engine.file_storage import FileStorage
 
 
 class TestBaseModel(unittest.TestCase):
@@ -54,7 +53,7 @@ class TestBaseModel(unittest.TestCase):
         """Test if save() persists the BaseModel instance
         to the file storage."""
         self.model.save()
-        loaded_storage = FileStorage()
+        loaded_storage = storage
         loaded_storage.reload()
         all_objs = loaded_storage.all()
         key = "BaseModel.{}".format(self.model.id)
