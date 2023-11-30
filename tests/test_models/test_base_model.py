@@ -53,7 +53,7 @@ class TestBaseModel(unittest.TestCase):
         """Test if save() persists the BaseModel instance
         to the file storage."""
         self.model.save()
-        loaded_storage = FileStorage
+        loaded_storage = FileStorage()
         loaded_storage.reload()
         all_objs = loaded_storage.all()
         key = "BaseModel.{}".format(self.model.id)
