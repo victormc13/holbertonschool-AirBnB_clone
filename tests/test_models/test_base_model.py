@@ -4,17 +4,18 @@ from datetime import datetime
 from models import storage
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
     """
     Test cases for the BaseModel class.
     """
     def setUp(self):
-    """Set up the test environment."""
-	self.file_path = "test_base_model_save.json"
+        """Set up the test environment."""
+        self.file_path = "test_base_model_save.json"
         self.storage = storage
         self.storage._FileStorage__file_path = self.file_path
         self.model = BaseModel()
-    
+
     def tearDown(self):
         """Clean up after the test."""
         if os.path.exists(self.file_path):
@@ -49,7 +50,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(my_model.updated_at, original_updated_at)
 
     def test_save_persists_to_file_storage(self):
-        """Test if save() persists the BaseModel instance to the file storage."""
+        """Test if save() persists the BaseModel instance
+        to the file storage."""
         self.model.save()
         loaded_storage = FileStorage()
         loaded_storage.reload()
@@ -71,6 +73,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('updated_at', my_model_dict)
         my_model.__dict__['name'] = "Test Model"
         self.assertIn('name', my_model.__dict__)
+
 
 if __name__ == '__main__':
     unittest.main()
