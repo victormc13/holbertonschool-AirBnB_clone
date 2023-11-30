@@ -46,19 +46,20 @@ class FileStorage:
         Serializes __objects to the JSON file (path: __file_path).
         """
         save_dict = {}
-        for key, obj in self.__object.items():
+        for key, obj in self.__objects.items():
             save_dict[key] = obj.to_dict()
 
         with open(self.__file_path, 'w', encoding='utf-8') as the_file:
             json.dump(save_dict, the_file)
 
     def reload(self):
+        from models.base_model import BaseModel
         try:
-            with open(self.__file_path, enconding='utf-8') as the_file:
+            with open(self.__file_path, encoding='utf-8') as the_file:
                 objs = json.load(the_file)
                 for k, v in objs.items():
                     class_name = v['__class__']
-                    del v['__class__']
                     self.new(eval(class_name)(**v))
+                    del v['__class__']
         except FileNotFoundError:
             pass
