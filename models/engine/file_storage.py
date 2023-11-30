@@ -6,7 +6,6 @@ and deserializes JSON file to instances.
 """
 
 import json
-from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -54,6 +53,7 @@ class FileStorage:
             json.dump(save_dict, the_file)
 
     def reload(self):
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path, encoding='utf-8') as the_file:
                 objs = json.load(the_file)
