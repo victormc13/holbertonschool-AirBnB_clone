@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """BaseModel class that serves as the base for other classes."""
-import json
+
 from uuid import uuid4
 from datetime import datetime
 from models import storage
