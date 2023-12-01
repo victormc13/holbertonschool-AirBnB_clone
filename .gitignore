@@ -1,3 +1,4 @@
 # Ignored files to be untracked
 
 __pycache__
+*.json
