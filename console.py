@@ -69,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
             del objects[key]
             storage.save()
         else:
-            print("** no instance found **")
+            print("** class doesn't exist **")
 
     def do_all(self, arg):
         """Prints all string representation of all instances."""
