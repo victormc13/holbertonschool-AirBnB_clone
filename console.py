@@ -42,11 +42,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return
- 		try:
-       		eval(args[0])
-    	except NameError:
-        	print("** class doesn't exist **")
-        	return
+        try:
+            eval(args[0])
+        except NameError:
+            print("** class doesn't exist **")
+            return
         if len(args) == 1:
             print("** instance id missing **")
             return
@@ -109,11 +109,11 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             print("** instance id missing **")
             return
-		try:
-        	eval(args[0])
-    	except NameError:
-        	print("** class doesn't exist **")
-        	return
+        try:
+            eval(args[0])
+        except NameError:
+            print("** class doesn't exist **")
+            return
         if len(args) == 2:
             print("** attribute name missing **")
             return
