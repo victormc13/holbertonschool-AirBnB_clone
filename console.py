@@ -91,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
             try:
                 eval(arg)
             except NameError:
-                print("** class doen't exist **")
+                print("** class doesn't exist **")
                 return
         objects = storage.all()
         result = []
