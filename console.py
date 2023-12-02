@@ -55,22 +55,22 @@ class HBNBCommand(cmd.Cmd):
         
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id."""
-        if not arg:
+		args = arg.split()
+        if len(args) == 0:
             print("** class name missing **")
-        else:
-            args = arg.split()
-            if args[0] not in storage.all():
-                print("** class doesn't exist **")
-            elif len(args) < 2:
-                print("** instance id missing **")
-            else:
-                key = "{}.{}".format(args[0], args[1])
-                if key not in storage.all()[args[0]]:
-                    print("** no instance found **")
-                else:
-                    del storage.all()[args[0]][key]
-                    storage.save()
+            return
+        if len(args) == 1:
+            print("** instance id missing **")
+            return
 
+        objects = storage.all()
+        key = f"{args[0]}.{args[1]}"
+        if key in objects:
+            del objects[key]
+            storage.save()
+        else:
+            print("** no instance found **")
+        
     def do_all(self, arg):
         """Prints all string representation of all instances."""
         args = arg.split()
