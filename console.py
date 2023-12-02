@@ -28,17 +28,17 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-		else:
-        	try:
-            	obj = eval(arg)()
-            	obj.save()
-            	print(obj.id)
-        	except NameError:
-            	print("** class doesn't exist **")
+        else:
+            try:
+                obj = eval(arg)()
+                obj.save()
+                print(obj.id)
+            except NameError:
+                print("** class doesn't exist **")
 
     def do_show(self, arg):
         """Print the string representation of an instance."""
-		args = arg.split()
+        args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -52,10 +52,10 @@ class HBNBCommand(cmd.Cmd):
             print(objects[key])
         else:
             print("** no instance found **")
-        
+
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id."""
-		args = arg.split()
+        args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -70,10 +70,10 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** no instance found **")
-        
+
     def do_all(self, arg):
         """Prints all string representation of all instances."""
-		if arg:
+        if arg:
             try:
                 eval(arg)
             except NameError:
@@ -85,10 +85,10 @@ class HBNBCommand(cmd.Cmd):
             if not arg or arg == key.split(".")[0]:
                 result.append(str(objects[key]))
         print(result)
-        
+
     def do_update(self, arg):
         """Updates an instance based on the class name and id."""
-		args = arg.split()
+        args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
         if args[2] not in ['id', 'created_at', 'updated_at']:
             setattr(objects[key], args[2], args[3].strip("\""))
             objects[key].save()
-        
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
