@@ -7,7 +7,6 @@ from models.user import User
 from models import storage
 
 
-
 class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
