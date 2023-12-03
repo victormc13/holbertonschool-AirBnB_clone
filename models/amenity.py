@@ -1,8 +1,8 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-	""" Amenity class that inherits from BaseModel to represent an amenity """
-	name = ""
+    """ Amenity class that inherits from BaseModel to represent an amenity """
+    name = ""
