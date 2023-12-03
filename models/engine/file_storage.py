@@ -22,6 +22,15 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
+	def classes(self):
+        """Returns a dictionary of supported classes."""
+        from models.base_model import BaseModel
+        from models.user import User
+        return {
+            'BaseModel': BaseModel,
+            'User': User,
+        }
+
     def all(self):
         """
         Returns the dictionary __objects.
@@ -54,6 +63,7 @@ class FileStorage:
 
     def reload(self):
         from models.base_model import BaseModel
+		from models.user import User
         try:
             with open(self.__file_path, encoding='utf-8') as the_file:
                 objs = json.load(the_file)
