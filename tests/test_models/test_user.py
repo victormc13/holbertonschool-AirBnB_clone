@@ -9,7 +9,8 @@ class TestUser(unittest.TestCase):
     """Class to test the User class"""
 
     def test_user_instance(self):
-        """Tests if User is an instance of BaseModel and has the correct attributes. """
+        """Tests if User is an instance of BaseModel and
+        has the correct attributes. """
         user = User()
         self.assertIsInstance(user, User)
         self.assertTrue(hasattr(user, "email"))
@@ -43,7 +44,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue('email' in user_dict)
         self.assertTrue('first_name' in user_dict)
         self.assertTrue('last_name' in user_dict)
-		self.assertTrue('id' in user_dict)
+        self.assertTrue('id' in user_dict)
 
 
 if __name__ == '__main__':
