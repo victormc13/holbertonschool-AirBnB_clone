@@ -37,7 +37,7 @@ class BaseModel:
                     if key in ['created_at', 'updated_at']:
                         string_format = '%Y-%m-%dT%H:%M:%S.%f'
                         value = datetime.strptime(value, string_format)
-                    setattr(self, key, value)
+                        setattr(self, key, value)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
