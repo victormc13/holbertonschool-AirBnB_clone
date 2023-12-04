@@ -90,7 +90,7 @@ class FileStorage:
                 objs = json.load(the_file)
                 for k, v in objs.items():
                     class_name = v['__class__']
-                    self.new(eval(class_name)(**v))
                     del v['__class__']
+                    self.new(eval(class_name)(**v))
         except FileNotFoundError:
             pass
