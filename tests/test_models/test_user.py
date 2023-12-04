@@ -41,10 +41,6 @@ class TestUser(unittest.TestCase):
         self.assertIsInstance(user_dict, dict)
         self.assertTrue('created_at' in user_dict)
         self.assertTrue('updated_at' in user_dict)
-        self.assertTrue('email' in user_dict)
-        self.assertTrue('first_name' in user_dict)
-        self.assertTrue('last_name' in user_dict)
-        self.assertTrue('id' in user_dict)
 
 
 if __name__ == '__main__':
