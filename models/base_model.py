@@ -35,9 +35,8 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key != '__class__':
                     if key in ['created_at', 'updated_at']:
-                        string_format = '%Y-%m-%dT%H:%M:%S.%f'
-                        value = datetime.strptime(value, string_format)
-                        setattr(self, key, value)
+                        attribute_value = datetime.fromisoformat(value)
+                        setattr(self, key, attribute_value)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
