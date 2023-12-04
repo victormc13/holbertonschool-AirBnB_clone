@@ -49,7 +49,7 @@ class TestFileStorage(unittest.TestCase):
         loaded_storage = FileStorage()
         loaded_storage.reload()
         all_objs = loaded_storage.all()
-        key = "BaseModel.{}".format(self.model.id)
+        key = f"{self.model.__class__.__name__}.{self.model.id}"
         self.assertIn(key, all_objs)
 
 
