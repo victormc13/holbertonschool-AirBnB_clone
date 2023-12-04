@@ -54,6 +54,8 @@ class TestBaseModel(unittest.TestCase):
         my_model.save()
         self.assertIsInstance(my_model.updated_at, datetime)
         self.assertNotEqual(my_model.updated_at, original_updated_at)
+        obj_dict = my_model.to_dict()
+        self.assertEqual(my_model.updated_at.isoformat(), obj_dict['updated_at'])
 
     def test_save_persists_to_file_storage(self):
         """Test if save() persists the BaseModel instance
