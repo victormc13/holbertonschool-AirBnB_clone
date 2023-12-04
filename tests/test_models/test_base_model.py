@@ -1,3 +1,7 @@
+#!usr/bin/python3
+
+"""Test cases for the BaseModel class."""
+
 import unittest
 import os
 from datetime import datetime
@@ -9,6 +13,7 @@ class TestBaseModel(unittest.TestCase):
     """
     Test cases for the BaseModel class.
     """
+
     def setUp(self):
         """Set up the test environment."""
         self.file_path = "test_base_model_save.json"
