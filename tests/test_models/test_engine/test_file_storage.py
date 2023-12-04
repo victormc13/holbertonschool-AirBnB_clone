@@ -52,6 +52,11 @@ class TestFileStorage(unittest.TestCase):
         key = f"{self.model.__class__.__name__}.{self.model.id}"
         self.assertIn(key, all_objs)
 
+    def test_reload_method(self):
+        """Test for reload method documentation"""
+        instance = FileStorage()
+        self.assertIsNotNone(instance.reload.__doc__)
+
 
 if __name__ == '__main__':
     unittest.main()
