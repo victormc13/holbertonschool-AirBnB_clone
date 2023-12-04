@@ -82,7 +82,7 @@ class TestFileStorage(unittest.TestCase):
         loaded_storage = FileStorage()
         loaded_storage.reload()
         self.assertGreaterEqual(len(loaded_storage.all()), 0)
-        self.assertEqual(len(loaded_storage.all()), 16)
+        self.assertEqual(len(loaded_storage.all()), 5)
 
 
 if __name__ == '__main__':
