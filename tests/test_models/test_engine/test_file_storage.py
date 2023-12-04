@@ -81,7 +81,6 @@ class TestFileStorage(unittest.TestCase):
         os.remove(self.file_path)
         loaded_storage = FileStorage()
         loaded_storage.reload()
-        # Check that the loaded_storage has no objects
         self.assertEqual(loaded_storage.all(), {})
 
 
