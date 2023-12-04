@@ -71,11 +71,11 @@ class HBNBCommand(cmd.Cmd):
             return
 
         objects = storage.all()
-		# class_name_list = []
+        # class_name_list = []
 
-		# for element in storage.all().keys():
-			# class_name = element.split('.')[0]
-			# class_name_list.append(class_name)
+        # for element in storage.all().keys():
+        # class_name = element.split('.')[0]
+        # class_name_list.append(class_name)
 
         if args[0] in storage.classes():
             if len(args) == 2:
