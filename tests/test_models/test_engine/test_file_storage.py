@@ -59,6 +59,31 @@ class TestFileStorage(unittest.TestCase):
         instance = FileStorage()
         self.assertIsNotNone(instance.reload.__doc__)
 
+    def test_reload_types(self):
+        """Test the types of parameters for the 'reload' method."""
+        self.storage.new(self.model)
+        self.storage.save()
+
+        loaded_storage = FileStorage()
+
+        with self.assertRaises(TypeError):
+            loaded_storage.reload("incorrect_parameter")
+
+        loaded_storage.reload()
+
+        key = f"{self.model.__class__.__name__}.{self.model.id}"
+        self.assertIn(key, loaded_storage.all())
+
+    def test_reload_nonexisting_file(self):
+        """Test for a non-existing file when reload the storage."""
+        self.storage.new(self.model)
+        self.storage.save()
+        os.remove(self.file_path)
+        loaded_storage = FileStorage()
+        loaded_storage.reload()
+        # Check that the loaded_storage has no objects
+        self.assertEqual(loaded_storage.all(), {})
+
 
 if __name__ == '__main__':
     unittest.main()
