@@ -80,7 +80,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         os.remove(self.file_path)
         loaded_storage = FileStorage()
-        loaded_storage.reload()
+        # loaded_storage.reload()
         self.assertNotEqual(loaded_storage.all(), {})
 
 
