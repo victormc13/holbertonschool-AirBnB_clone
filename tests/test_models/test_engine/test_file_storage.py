@@ -14,7 +14,7 @@ class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         """Set up the test environment before each test case."""
-        self.file_path = "test_file.json"
+        self.file_path = "file.json"
         self.storage = FileStorage()
         self.storage._FileStorage__file_path = self.file_path
         self.model = BaseModel()
@@ -80,8 +80,8 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         os.remove(self.file_path)
         loaded_storage = FileStorage()
-        # loaded_storage.reload()
-        self.assertEqual(loaded_storage.all(), {})
+        loaded_storage.reload()
+        self.assertEqual(len(loaded_storage.all()), 16)
 
 
 if __name__ == '__main__':
