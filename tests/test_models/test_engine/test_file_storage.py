@@ -6,6 +6,8 @@ import os
 
 
 class TestFileStorage(unittest.TestCase):
+	"""Test cases for the FileStorage class."""
+
     def setUp(self):
         """Set up the test environment before each test case."""
         self.file_path = "test_file.json"
