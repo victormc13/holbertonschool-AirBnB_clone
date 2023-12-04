@@ -73,6 +73,10 @@ class FileStorage:
             json.dump(save_dict, the_file)
 
     def reload(self):
+        """
+        Deserializes the JSON file to __objects,
+        only if the JSON file '__file_path' exists
+        """
         from models.base_model import BaseModel
         from models.user import User
         from models.state import State
