@@ -47,12 +47,14 @@ class TestFileStorage(unittest.TestCase):
         self.storage.new(self.model)
         self.storage.save()
         loaded_storage = FileStorage()
+        with self.assertRaises(TypeError):
+            loaded_storage.reload("incorrect_type_parameter")
         loaded_storage.reload()
         all_objs = loaded_storage.all()
         key = f"{self.model.__class__.__name__}.{self.model.id}"
         self.assertIn(key, all_objs)
 
-    def test_reload_method(self):
+    def test_reload_docstring(self):
         """Test for reload method documentation"""
         instance = FileStorage()
         self.assertIsNotNone(instance.reload.__doc__)
