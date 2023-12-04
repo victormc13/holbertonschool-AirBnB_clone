@@ -47,7 +47,7 @@ class TestBaseModel(unittest.TestCase):
         my_model = BaseModel()
         original_updated_at = my_model.updated_at
         my_model.save()
-		self.assertIsInstance(my_model.updated_at, datetime)
+        self.assertIsInstance(my_model.updated_at, datetime)
         self.assertNotEqual(my_model.updated_at, original_updated_at)
 
     def test_save_persists_to_file_storage(self):
